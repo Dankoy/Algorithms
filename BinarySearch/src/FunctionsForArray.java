@@ -1,9 +1,9 @@
 
-public class OrdArray {
+public class FunctionsForArray {
 	private long[] a; // Ссылка на массив a
 	private int nElems; // Количество элементов данных
 	
-	public OrdArray(int max) { // Конструктор
+	public FunctionsForArray(int max) { // Конструктор
 		a = new long[max];
 		nElems = 0;
 	}

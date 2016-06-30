@@ -1,5 +1,5 @@
-public class OrderedArray extends OrdArray {
-	public OrderedArray(int max) {
+public class OrderedArrayMain extends FunctionsForArray {
+	public OrderedArrayMain(int max) {
 		super(max);
 		// TODO Auto-generated constructor stub
 	}
@@ -7,8 +7,8 @@ public class OrderedArray extends OrdArray {
 	public static void main(String[] args) {
 		
 		int maxSize = 100; // Размер массива
-		OrdArray arr; // Ссылка на массив
-		arr = new OrdArray(maxSize); // Создание массива
+		FunctionsForArray arr; // Ссылка на массив
+		arr = new FunctionsForArray(maxSize); // Создание массива
 
 		arr.insert(77); // Вставка 10 элементов
 		arr.insert(99);
