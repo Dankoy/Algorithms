@@ -1,8 +1,8 @@
 public class OrderedArrayMain extends FunctionsForArray {
 	public OrderedArrayMain(int max) {
 		super(max);
-		// TODO Auto-generated constructor stub
 	}
+	
 
 	public static void main(String[] args) {
 		
@@ -17,9 +17,11 @@ public class OrderedArrayMain extends FunctionsForArray {
 		arr.insert(22);
 		arr.insert(88);
 		arr.insert(11);
-		arr.insert(00);
+		arr.insert(3);
 		arr.insert(66);
-		arr.insert(33);
+		arr.insert(88);
+		arr.insert(22);
+		
 
 		int searchKey = 55; // Поиск элемента
 
@@ -32,10 +34,20 @@ public class OrderedArrayMain extends FunctionsForArray {
 		
 		arr.display(); // Вывод содержимого
 		
-		arr.delete(00);
-		arr.delete(55);
-		arr.delete(99); // Удаление трех элементов
+//		arr.delete(00);
+//		arr.delete(55);
+//		arr.delete(99); // Удаление трех элементов
 		
 		arr.display(); // Повторный вывод
+		
+		arr.noDups();
+		int k = 0;
+		System.out.println(arr.size());
+		while(k < arr.size()) {
+			arr.delete(0);
+			k = k + 1;
+		}
+		arr.display();
+		
 	}
 }

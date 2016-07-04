@@ -1,4 +1,5 @@
 
+
 public class FunctionsForArray {
 	private long[] a; // Ссылка на массив a
 	private int nElems; // Количество элементов данных
@@ -67,4 +68,15 @@ public class FunctionsForArray {
 		}
 		System.out.println("");
 	}
+	
+	public void noDups() {
+		for(int i=0; i < a.length; i++) {
+			for(int j=i+1; j < a.length; j++) {
+				if (a[i] == a[j]) {
+					a[i] = 0;
+				}
+			}
+		}
+	}
+	
 } //OrdArray
