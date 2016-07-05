@@ -12,7 +12,7 @@ public class OrderedArrayMain extends FunctionsForArray {
 
 		arr.insert(77); // Вставка 10 элементов
 		arr.insert(99);
-		arr.insert(44);
+		arr.insert(66);
 		arr.insert(55);
 		arr.insert(22);
 		arr.insert(88);
@@ -20,6 +20,7 @@ public class OrderedArrayMain extends FunctionsForArray {
 		arr.insert(3);
 		arr.insert(66);
 		arr.insert(88);
+		arr.insert(66);
 		arr.insert(22);
 		
 
@@ -40,13 +41,7 @@ public class OrderedArrayMain extends FunctionsForArray {
 		
 		arr.display(); // Повторный вывод
 		
-		arr.noDups();
-		int k = 0;
-		System.out.println(arr.size());
-		while(k < arr.size()) {
-			arr.delete(0);
-			k = k + 1;
-		}
+		arr.noDups();	
 		arr.display();
 		
 	}

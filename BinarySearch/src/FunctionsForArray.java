@@ -70,10 +70,11 @@ public class FunctionsForArray {
 	}
 	
 	public void noDups() {
-		for(int i=0; i < a.length; i++) {
-			for(int j=i+1; j < a.length; j++) {
+		for(int i=0; i < nElems; i++) {
+			for(int j=i+1; j < nElems; j++) {
 				if (a[i] == a[j]) {
-					a[i] = 0;
+					delete(a[j]);
+					i = i-1;
 				}
 			}
 		}
