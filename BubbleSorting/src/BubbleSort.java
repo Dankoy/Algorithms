@@ -8,7 +8,7 @@ public class BubbleSort extends ArrayBubble {
 	}
 
 	public static void main(String[] args) {
-		int maxSize = 1000; 		// Array size
+		int maxSize = 100; 		// Array size
 		ArrayBubble arr = new ArrayBubble(maxSize);
 		
 		for (int j = 0; j < maxSize; j++) {		// Random insert elements in array
@@ -20,13 +20,15 @@ public class BubbleSort extends ArrayBubble {
 		
 		long startTime = System.currentTimeMillis();
 		
-		arr.bubbleSort();
+		arr.reverseBubbleSort();
 		
 		long timeSpent = System.currentTimeMillis() - startTime;
 		
 		arr.display();
 		
 		System.out.println("Time taken for sorting: " + timeSpent + " mls.");
+		
+	
 	}
 
 }

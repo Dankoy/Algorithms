@@ -37,4 +37,15 @@ public class ArrayBubble {
 		a[one] = a[two];
 		a[two] = temp;
 	}
+	
+	public void reverseBubbleSort() {
+		int out, in;
+		for (out = 0; out < nElems - 1; out++) {
+			for (in = nElems - 1; in > out; in--) {
+				if (a[in] > a[in-1]) {
+					swap(in, in-1);
+				}
+			}
+		}
+	}
 }
