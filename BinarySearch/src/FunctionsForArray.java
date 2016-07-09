@@ -1,10 +1,10 @@
 
 
 public class FunctionsForArray {
-	private long[] a; // Ссылка на массив a
-	private int nElems; // Количество элементов данных
+	private long[] a; // Array reference
+	private int nElems; // Amount of elements in array
 	
-	public FunctionsForArray(int max) { // Конструктор
+	public FunctionsForArray(int max) { // Constructor
 		a = new long[max];
 		nElems = 0;
 	}
@@ -19,52 +19,52 @@ public class FunctionsForArray {
 		int curIn;
 		while(true)	{
 			curIn = (lowerBound + upperBound ) / 2;
-			if(a[curIn]==searchKey) {    // Элемент найден
+			if(a[curIn]==searchKey) {    // If element has been found
 				return curIn; 
 			}
-			else if (lowerBound > upperBound) {   // Элемент не найден
+			else if (lowerBound > upperBound) {   // If element has not been found
 				return nElems;
 			}
-			else {// Деление диапазона
+			else {// Range division
 				if(a[curIn] < searchKey) {
-				lowerBound = curIn + 1; // В верхней половине
+				lowerBound = curIn + 1; // In upper part
 				}
 				else {
-					upperBound = curIn - 1; // В нижней половине
+					upperBound = curIn - 1; // In lower part
 				}
 			}
 		}
 	}
 
-	public void insert(long value) { // Вставка элемента в массив
+	public void insert(long value) { // inserting data in array
 		int j;
-		for(j=0; j<nElems; j++) // Определение позиции вставки
-			if(a[j] > value) // (линейный поиск)
+		for(j=0; j<nElems; j++) // Determination the position of inserting
+			if(a[j] > value) // (linear search)
 				break;
-		for(int k=nElems; k>j; k--) { // Перемещение последующих элементов
-			a[k] = a[k-1]; // Вставка
+		for(int k=nElems; k>j; k--) { // Moving next elements
+			a[k] = a[k-1]; // inserting
 		}
 		a[j] = value;
-		nElems++; // Увеличение размера
+		nElems++; // Increasing size of array
 	}
 
 	public boolean delete(long value) {
 		int j = find(value);
-		if(j == nElems) { // Найти не удалось
+		if(j == nElems) { // If element has been found
 			return false;
 		}
-		else { // Элемент найден
-			for(int k=j; k<nElems; k++) { // Перемещение последующих элементов
+		else { // If element has not been found
+			for(int k=j; k < nElems; k++) { // Moving next elements
 				a[k] = a[k+1];
 			}
-			nElems--; // Уменьшение размера
+			nElems--; // Decreasing size of array
 			return true;
 		}
 	}
 
-	public void display() { // Вывод содержимого массива
-		for(int j=0; j < nElems; j++) { // Перебор всех элементов
-			System.out.print(a[j] + " "); // Вывод текущего элемента
+	public void display() { // printing array
+		for(int j=0; j < nElems; j++) { 
+			System.out.print(a[j] + " "); 
 		}
 		System.out.println("");
 	}
@@ -80,4 +80,4 @@ public class FunctionsForArray {
 		}
 	}
 	
-} //OrdArray
+} // FunctionsForArray
