@@ -6,6 +6,8 @@ public class OrderedArrayMain extends FunctionsForArray {
 
 	public static void main(String[] args) {
 		
+		long startTime = System.currentTimeMillis();
+		
 		int maxSize = 100; // Size of array
 		FunctionsForArray arr; // Array reference 
 		arr = new FunctionsForArray(maxSize); // creating the array
@@ -40,6 +42,9 @@ public class OrderedArrayMain extends FunctionsForArray {
 		
 		arr.noDups();	
 		arr.display();
+		
+		long timeSpent = System.currentTimeMillis() - startTime;
+		System.out.println("Time spent for running program: " + timeSpent + " mls.");
 		
 	}
 }
