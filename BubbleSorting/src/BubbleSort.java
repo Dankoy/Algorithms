@@ -11,18 +11,10 @@ public class BubbleSort extends ArrayBubble {
 		int maxSize = 100; 		// Array size
 		ArrayBubble arr = new ArrayBubble(maxSize);
 		
-		arr.insert(77);		// Inserting elements in array . Need to make it randomized.
-		arr.insert(99);
-		arr.insert(44);
-		arr.insert(77); 	
-		arr.insert(99);
-		arr.insert(66);
-		arr.insert(55);
-		arr.insert(22);
-		arr.insert(88);
-		arr.insert(11);
-		arr.insert(3);
-		arr.insert(66);
+		for (int j = 0; j < maxSize; j++) {		// Random insert elements in array
+			long n = (long) (java.lang.Math.random()*(maxSize-1));
+			arr.insert(n);
+		}
 		
 		arr.display();
 		arr.bubbleSort();
