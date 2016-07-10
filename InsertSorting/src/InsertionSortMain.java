@@ -7,7 +7,7 @@ public class InsertionSortMain extends InsertSortMethods {
 	
 	public static void main(String[] args) {
 		
-		int maxSize = 1000;
+		int maxSize = 10;
 		InsertSortMethods arr = new InsertSortMethods(maxSize);
 		
 		for (int j = 0; j < maxSize; j++) {		// Random insert elements in array
@@ -19,7 +19,7 @@ public class InsertionSortMain extends InsertSortMethods {
 		
 		long startTime = System.currentTimeMillis();
 		
-		arr.insertionSort();
+		arr.reverseInsertionSort();
 		
 		long timeSpent = System.currentTimeMillis() - startTime;
 		

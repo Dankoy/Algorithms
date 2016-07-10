@@ -34,4 +34,18 @@ public class InsertSortMethods {
 			a[in] = temp;
 		}
 	}
+	
+	public void reverseInsertionSort() {
+		int in, out;
+		
+		for (out = a.length - 1; out >= 0; out--) {
+			long temp = a[out];
+			in = out;
+			while (in < nElems - 1 && a[in+1] >= temp) {
+				a[in] = a[in+1];
+				++in;
+			}
+			a[in] = temp;
+		}
+	}
 }
