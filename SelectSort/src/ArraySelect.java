@@ -18,19 +18,19 @@ public class ArraySelect {
 		for (int i = 0; i < nElems; i++) {
 			System.out.print(a[i] + " ");
 		}
-		System.out.print(" ");
+		System.out.println(" ");
 	}
 	
 	public void selectionSort() {
 		int in, out, min;
-		for (out = 0; out < nElems; out++) {
+		for (out = 0; out < nElems - 1; out++) {
 			min = out;
 			for (in = out + 1; in < nElems; in++) {
 				if (a[in] < a[min]) {
 					min = in;
 				}
-				swap(out, min);
 			}
+			swap(out, min);
 		}
 	}
 	
