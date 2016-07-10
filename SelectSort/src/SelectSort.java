@@ -7,7 +7,7 @@ public class SelectSort extends ArraySelect  {
 
 	public static void main(String[] args) {
 		
-		int maxSize = 1000;
+		int maxSize = 10;
 		ArraySelect arr = new ArraySelect(maxSize);
 		
 		for (int j = 0; j < maxSize; j++) {		// Random insert elements in array
@@ -19,7 +19,7 @@ public class SelectSort extends ArraySelect  {
 		
 		long startTime = System.currentTimeMillis();
 		
-		arr.selectionSort();
+		arr.reverseSelectionSort();
 		
 		long timeSpent = System.currentTimeMillis() - startTime;
 		

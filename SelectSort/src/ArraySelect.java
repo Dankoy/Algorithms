@@ -34,6 +34,19 @@ public class ArraySelect {
 		}
 	}
 	
+	public void reverseSelectionSort() {
+		int in, out, min;
+		for (out = nElems-1; out > 0; out--) {
+			min = out;
+			for (in = out - 1; in >= 0; in--) {
+				if (a[in] < a[min]) {
+					min = in;
+				}
+			}
+			swap(out, min);
+		}
+	}
+	
 	private void swap(int one, int two) {
 		long tmp = a[one];
 		a[one] = a[two];
