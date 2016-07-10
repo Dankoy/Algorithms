@@ -16,8 +16,16 @@ public class InsertionSortMain extends InsertSortMethods {
 		}
 		
 		arr.display();
+		
+		long startTime = System.currentTimeMillis();
+		
 		arr.insertionSort();
+		
+		long timeSpent = System.currentTimeMillis() - startTime;
+		
 		arr.display();
+		
+		System.out.print("Time taken for sorting: " + timeSpent + " mls.");
 
 	}
 
