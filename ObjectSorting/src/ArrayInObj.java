@@ -1,16 +1,17 @@
 
-public class ArrayInObj extends Person  {
+public class ArrayInObj  {
 	
 	private Person a[];
 	private int nElems;
 	
-	public ArrayInObj(int max) { 		// Here is the problem
+	public ArrayInObj(int max) { 	
 		a = new Person[max];
 		nElems = 0;
 	}
 	
 	public void insert(String last, String first, int age) {
 		a[nElems] = new Person(last, first, age);
+		nElems++;
 	}
 	
 	public void display() {

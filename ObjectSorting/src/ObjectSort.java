@@ -1,8 +1,9 @@
 
 public class ObjectSort extends ArrayInObj {
-
+	
 	public ObjectSort(int max) {
 		super(max);
+		// TODO Auto-generated constructor stub
 	}
 
 	public static void main(String[] args) {
