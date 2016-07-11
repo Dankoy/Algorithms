@@ -1,9 +1,5 @@
 
-public class InsertionSortMain extends InsertSortMethods {
-
-	public InsertionSortMain(int max) {
-		super(max);
-	}
+public class InsertionSortMain {
 	
 	public static void main(String[] args) {
 		
