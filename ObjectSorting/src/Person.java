@@ -20,4 +20,10 @@ public class Person {
 	public String getLast() {
 		return lastName;
 	}
+	public String getFirst() {
+		return firstName;
+	}
+	public Integer getAge() {
+		return  age;
+	}
 }

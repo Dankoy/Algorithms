@@ -20,7 +20,7 @@ public class ObjectSort extends ArrayInObj {
 		System.out.println("Before sorting: ");
 		arr.display();
 		
-		arr.insertionSort();
+		arr.insertionSortAge();
 		
 		System.out.println("After sorting: ");
 		arr.display();
