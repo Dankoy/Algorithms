@@ -5,22 +5,20 @@ public class StackApp {
 		
 		StackX theStack = new StackX(10);	// Creating stack with 10 elements
 		
+		System.out.println("The sequence of pushing elements in stack:\n");
 		int size = theStack.getStackSize();
 		for (int i = 0; i < size; i++) {
 			long n = (long) (java.lang.Math.random()*(10 - 1));
 			theStack.push(n);
+			System.out.println("The element ¹" + (i + 1) + " pushing value: " + n);
 		}
-		
-/*		theStack.push(20);
-		theStack.push(40);
-		theStack.push(60);
-		theStack.push(80);  */
-		
+		System.out.println("\nThe sequence of popping elements from stack:\n");
+				int i = size;
 		while( !theStack.isEmpty() ) {		// While stack is not empty
 			long value = theStack.pop();
-			System.out.print(value + " ");	
+			System.out.println("The element ¹" + i + " popping value " + value);
+			i--;
 		}
-		System.out.println(" ");
 	}
 
 }
