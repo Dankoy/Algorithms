@@ -12,8 +12,8 @@ public class StackX {
 	}
 	
 	public void push(long j) {		// Pushing element in stack
-		stackArray[top] = j;
 		top++;
+		stackArray[top] = j;
 	}
 	
 	public long pop() {				// Getting element from stack
