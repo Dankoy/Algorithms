@@ -32,4 +32,8 @@ public class StackX {
 		return (top == maxSize-1);
 	}
 	
+	public int getStackSize() {
+		return maxSize;
+	}
+	
 }
