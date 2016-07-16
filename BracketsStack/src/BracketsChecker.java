@@ -16,18 +16,23 @@ public class BracketsChecker {
 			char ch = input.charAt(j);
 			switch(ch) {
 				
-				case '{' | '[' | '(':
+				case '{':
+				case '[':
+				case '(':
 					stack.push(ch);
 					break;
 					
-				case '}' | ']' | ')':
+				case '}':
+				case ']':
+				case ')':
 					if( !stack.isEmpty() ) {		// If the stack is not empty
 						char chx = stack.pop(); 	// Pop and check
+						
 						if ( (ch == '}' && chx != '{' ) || (ch == ']' && chx != '[') || (ch == ')' && chx != '(') ) {
 							System.out.println("Error: " + ch + " at " + j);
 						}
 						else {
-							System.out.println("Error: " + ch + " at " + j);
+							System.out.println("All is good");
 						}
 						break;
 					}

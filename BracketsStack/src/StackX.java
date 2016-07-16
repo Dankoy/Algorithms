@@ -6,7 +6,8 @@ public class StackX {
 	private int top;
 	
 	public StackX(int s) {
-		stackArray = new char[s];
+		maxSize = s;
+		stackArray = new char[maxSize];
 		top = -1;   					// No elements in stack yet
 	}
 	
@@ -16,7 +17,7 @@ public class StackX {
 	}
 	
 	public char pop() {
-		return stackArray[--top];
+		return stackArray[top--];
 	}
 	
 	public char peek() {
