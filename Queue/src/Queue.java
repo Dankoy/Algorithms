@@ -18,17 +18,17 @@ public class Queue {
 	public void insert(long j) {	// Adding element in the end of queue
 		if (rear == maxSize-1) {	//Cycle moving
 			rear = -1;
-			queArray[++rear] = j;
-			nItems++;
 		}
+		queArray[++rear] = j;
+		nItems++;
 	}
 	
 	public long remove() {			// Removing element from the beginning of queue
 		long temp = queArray[front++];	
 		if ( front == maxSize) {
 			front = 0;
-			nItems--;
 		}
+		nItems--;
 		return temp;
 	}
 	
