@@ -1,4 +1,6 @@
 
+// Queue with the counter of elements 'nItems'
+
 public class Queue {
 	
 	private int maxSize;
@@ -25,7 +27,7 @@ public class Queue {
 	
 	public long remove() {			// Removing element from the beginning of queue
 		long temp = queArray[front++];	
-		if ( front == maxSize) {
+		if ( front == maxSize) {	// Cycle moving
 			front = 0;
 		}
 		nItems--;
