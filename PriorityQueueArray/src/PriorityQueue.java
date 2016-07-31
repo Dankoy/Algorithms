@@ -1,5 +1,6 @@
 // The implementation of priority queue based on array (the slower implementation of queue than if it is based on  heap).
-// The lack of queues based on array is slow inserting, but it is appropriate in case if the amount of elements is small and speed of inserting is not really important.
+// The lack of queues based on array is slow inserting, but it is appropriate in case if the amount of elements is small
+// and speed of inserting is not really important.
 
 // Elements of array is sorting by key from max (0) to (maxSize-1). The lower element has higher priority
 
