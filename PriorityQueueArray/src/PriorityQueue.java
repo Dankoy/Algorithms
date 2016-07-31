@@ -40,7 +40,7 @@ public class PriorityQueue {
 		return queueArray[--nItems];
 	}
 	
-	public long peekMain() {							// Reading minimal element
+	public long peekMin() {							// Reading minimal element
 		return queueArray[nItems-1];
 	}
 	
