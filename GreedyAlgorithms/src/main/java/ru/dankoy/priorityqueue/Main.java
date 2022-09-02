@@ -34,8 +34,6 @@ public class Main {
         System.out.println(max);
       }
 
-      System.out.println(maxPriorityQueue);
-
     }
 
   }
@@ -103,11 +101,6 @@ class MaxPriorityQueue<T> {
 
     int[] existingRootChildren = childrenIndexes(0);
 
-    if (existingRootChildren.length == 0) {
-      array[0] = null;
-      return max;
-    }
-
     if (existingRootChildren.length > 1) {
       if (((Element<T>) array[0]).getPriority()
           < ((Element<T>) array[existingRootChildren[0]]).getPriority()
@@ -115,11 +108,9 @@ class MaxPriorityQueue<T> {
           < ((Element<T>) array[existingRootChildren[1]]).getPriority()) {
         siftDown();
       }
-    } else {
-      if (((Element<T>) array[0]).getPriority()
-          < ((Element<T>) array[existingRootChildren[0]]).getPriority()) {
-        siftDown();
-      }
+    } else if (existingRootChildren.length == 1 && ((Element<T>) array[0]).getPriority()
+        < ((Element<T>) array[existingRootChildren[0]]).getPriority()) {
+      siftDown();
     }
 
     return max;
@@ -180,13 +171,18 @@ class MaxPriorityQueue<T> {
 
       Element<T> rootElement = (Element<T>) array[rootIndex];
 
-      // значения ребенка переносим вверх
-      array[rootIndex] = array[indexWithMaxElement];
-      array[indexWithMaxElement] = rootElement;
+      if (rootElement.getPriority() < ((Element<T>) array[indexWithMaxElement]).getPriority()) {
+        // значения ребенка переносим вверх
+        array[rootIndex] = array[indexWithMaxElement];
+        array[indexWithMaxElement] = rootElement;
 
-      rootIndex = indexWithMaxElement;
+        rootIndex = indexWithMaxElement;
 
-      children = childrenIndexes(rootIndex);
+        children = childrenIndexes(rootIndex);
+      } else {
+        break;
+      }
+
     }
 
 
@@ -243,16 +239,16 @@ class MaxPriorityQueue<T> {
 
     int[] arr = new int[2];
 
-    indexOfCurrentElement++; // увеличиваю на 1, для соответствия индексу дерева
+//    indexOfCurrentElement++; // увеличиваю на 1, для соответствия индексу дерева
 
-    int firstChild = 2 * indexOfCurrentElement;
-    int secondChild = 2 * indexOfCurrentElement + 1;
+    int firstChild = 2 * indexOfCurrentElement + 1;
+    int secondChild = 2 * indexOfCurrentElement + 2;
 
     if (firstChild <= getSize()) {
-      arr[0] = firstChild - 1;
+      arr[0] = firstChild;
     }
     if (secondChild <= getSize()) {
-      arr[1] = secondChild - 1;
+      arr[1] = secondChild;
     }
 
     // удаляем null елементы из массива
