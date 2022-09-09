@@ -1,9 +1,7 @@
 package ru.dankoy.qicksort;
 
 
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ThreadLocalRandom;
 
 /**
@@ -19,11 +17,11 @@ import java.util.concurrent.ThreadLocalRandom;
 public class QuickSort {
 
 
-  public static void main(String[] args) throws ExecutionException, InterruptedException {
+  public static void main(String[] args) {
     new QuickSort().run();
   }
 
-  private void run() throws InterruptedException, ExecutionException {
+  private void run() {
 
     Scanner in = new Scanner(System.in);
 
@@ -47,21 +45,13 @@ public class QuickSort {
       dots[i] = in.nextInt();
     }
 
-//    ExecutorService executorService = Executors.newFixedThreadPool(2);
-
-//    executorService.submit(() -> quicksort(startRanges, 0, startRanges.length - 1));
-//    executorService.submit(() -> quicksort(endRanges, 0, endRanges.length - 1));
-
-//    latch.await();
-
-    System.out.println(Arrays.toString(dots));
+    // shuffle массивы
+    shuffleArray(startRanges);
+    shuffleArray(endRanges);
 
     // сортируем массивы
     quicksort(startRanges, 0, startRanges.length - 1);
     quicksort(endRanges, 0, endRanges.length - 1);
-
-    System.out.println(Arrays.toString(startRanges));
-    System.out.println(Arrays.toString(endRanges));
 
     StringBuilder sb = new StringBuilder();
 
@@ -73,28 +63,11 @@ public class QuickSort {
 
     for (int i = 0; i < dots.length; i++) {
 
-//      int finalI = i;
-//      Future<Integer> amountOfTimesDotIsLessOrEqualsThanStartRange =
-//          executorService.submit(
-//              () -> binarySearchWhereElementIsLessOrEqualsThanStartRanges(startRanges,
-//                  dots[finalI]));
-//
-//      Future<Integer> amountOfTimesDotIsLessThanEndRange =
-//          executorService.submit(
-//              () -> binarySearchWhereElementIsLessThanEndRanges(endRanges, dots[finalI]));
-//
-//      sb.append(amountOfTimesDotIsLessOrEqualsThanStartRange.get()
-//              - amountOfTimesDotIsLessThanEndRange.get())
-//          .append(" ");
-
       int amountOfTimesDotIsLessOrEqualsThanStartRange = binarySearchWhereElementIsLessOrEqualsThanStartRanges(
           startRanges, dots[i]);
-      System.out.println(
-          "start element - " + dots[i] + " " + amountOfTimesDotIsLessOrEqualsThanStartRange);
 
       int amountOfTimesDotIsLessThanEndRange = binarySearchWhereElementIsLessThanEndRanges(
           endRanges, dots[i]);
-      System.out.println("end element - " + dots[i] + " " + amountOfTimesDotIsLessThanEndRange);
 
       sb.append(amountOfTimesDotIsLessOrEqualsThanStartRange - amountOfTimesDotIsLessThanEndRange)
           .append(" ");
@@ -103,13 +76,30 @@ public class QuickSort {
 
     System.out.println(sb);
 
-//    executorService.shutdown();
 
+  }
+
+  /**
+   * Алгоритм шаффла массива. Шафл помогает избавиться от ухудшения работы агоритма сортировки,
+   * когда в массиве много одинаковых элементов или массив уже был отсортирован.
+   *
+   * @param array массив
+   */
+  private static void shuffleArray(long[] array) {
+    int index;
+    for (int i = array.length - 1; i > 0; i--) {
+      index = ThreadLocalRandom.current().nextInt(i, i + 1);
+      if (index != i) {
+        array[index] ^= array[i];
+        array[i] ^= array[index];
+        array[index] ^= array[i];
+      }
+    }
   }
 
 
   /**
-   * алгоритм быстрой сортировки с выборкой рандомного элементакак середина вместо первого по
+   * алгоритм быстрой сортировки с выборкой рандомного элемента как середина вместо первого по
    * дефолту
    *
    * @param array массив
@@ -136,6 +126,8 @@ public class QuickSort {
    * @return индекс элемента для которого все элементы слева меньше него, а справа - больше
    */
   private int partition(long[] array, int left, int right) {
+
+    //todo: сделать разбиение на три подмассива, а не на два
 
     // Берем рандомный индекс в пределах размера массива и перетаскиваем элемент с его значением в
     // начало массива
@@ -179,6 +171,13 @@ public class QuickSort {
   }
 
 
+  /**
+   * Бинарный поиск всех элементов в массиве которые меньше или равны числу
+   *
+   * @param array   массив
+   * @param element число
+   * @return количество элементов
+   */
   private int binarySearchWhereElementIsLessOrEqualsThanStartRanges(long[] array, long element) {
 
     int l = 0;
@@ -215,6 +214,13 @@ public class QuickSort {
 
   }
 
+  /**
+   * Бинарный поиск всех элементов в массиве которые строго меньше
+   *
+   * @param array   массив
+   * @param element число
+   * @return количество элементов
+   */
   private int binarySearchWhereElementIsLessThanEndRanges(long[] array, long element) {
 
     int l = 0;
@@ -251,6 +257,12 @@ public class QuickSort {
   }
 
 
+  /**
+   * Сортировка с поиском медианы работает некорректно
+   *
+   * @param array массив
+   * @return индекс медианы
+   */
   private int medianIndexOfThree(long[] array) {
 
     int l = 0;
@@ -261,24 +273,23 @@ public class QuickSort {
     long middle = array[m];
     long last = array[r];
 
-    if (first > middle)
-    {
-      if (middle > last)
+    if (first > middle) {
+      if (middle > last) {
         return m;
-      else if (first > last)
+      } else if (first > last) {
         return r;
-      else
+      } else {
         return l;
-    }
-    else
-    {
+      }
+    } else {
       // Decided a is not greater than b.
-      if (first > last)
+      if (first > last) {
         return l;
-      else if (middle > last)
+      } else if (middle > last) {
         return r;
-      else
+      } else {
         return m;
+      }
     }
 
 
