@@ -1,4 +1,4 @@
-package ru.dankoy.longestincreasingsequence;
+package ru.dankoy.dinamicprogramming.longestincreasingsequence;
 
 import java.util.Scanner;
 
