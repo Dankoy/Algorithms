@@ -1,5 +1,21 @@
 plugins {
     id 'java'
+    id 'idea'
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+idea {
+    module {
+        //if you love browsing Javadoc
+        downloadJavadoc = true
+
+        //and hate reading sources :)
+        downloadSources = true
+    }
 }
 
 group 'ru.dankoy'
