@@ -1,4 +1,4 @@
-package ru.dankoy.leetcode.hashmap;
+package ru.dankoy.leetcode.hashtable;
 
 import java.util.HashSet;
 import java.util.Set;
